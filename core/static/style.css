@@ -1,0 +1,40 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=IM+Fell+English+SC&family=Luckiest+Guy&family=Major+Mono+Display&family=Marck+Script&family=Pacifico&display=swap');
+
+body {
+font-family: 'Major Mono Display', monospace;
+    font-size: 20px;
+    color: #996114;
+    background: rgb(255, 253, 248);
+    /*background: linear-gradient(176deg, rgba(255, 253, 248, 1) 0%, rgba(215, 210, 185, 1) 100%);*/
+}
+
+h1 {
+    font-size: 6vw;
+    /*font-style: italic;*/
+    line-height: 0.9em;
+
+}
+
+button {
+    font-size: 24px;
+    background: #996114 ;
+    color: #fff;
+     border: 4px dashed #996114;
+
+}
+
+button:hover {
+    background: #fff;
+ color: #996114;
+}
+
+input, textarea, .form-control, .custom-file-input, .custom-file-label, .note-editor.note-frame {
+    border-radius: 0;
+    border: 4px dashed #996114;
+}
+
+.note-toolbar, .note-statusbar, .note-resizebar, .note-btn-group    .note-btn {
+    background: rgba(154, 97, 20, .05);
+}
+

@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="id_title">Your mix's title</label>
+            {% render_field form.title class+="form-control" %}
+        </div>
+        <div class="form-group mb-3">
+            <label for="id_text">Tracklist / Liner notes</label>
+            {% render_field form.text class+="form-control" %}
+        </div>
+        <div class="form-group mb-3">
+            <label for="id_link">Link to listen <i class="fas fa-headphones-alt"></i> or download <i
+                    class="fas fa-arrow-circle-down"></i></label>
+            {% render_field form.link class+="form-control" %}
+        </div>
+        {#        <div class="form-group pb-3">#}
+        {#            {% render_field form.cover_image class+="custom-file-input" %}#}
+        {#            <label for="id_cover_image">Cover image (optional)</label>#}
+        {##}
+        {#        </div>#}
+        {#        <div class="form-group pb-3">#}
+        {#            {% render_field form.back_image class+="custom-file-input" %}#}
+        {#            <label for="id_back_image">Cover image (optional)</label>#}
+        {##}
+        {#        </div>#}
+        <div class="form-group pb-3">
+                            <p class="mb-2">Cover image (optional)</p>
+
+            <div class="custom-file">
+                {% render_field form.cover_image class+="custom-file-input cover" %}
+                <label class="custom-file-label" for="customFile">CLick to select</label>
+            </div>
+        </div>
+        <div class="form-group pb-3">
+<p class="mb-2">Back image (optional)</p>
+            <div class="custom-file">
+                {% render_field form.back_image class+="custom-file-input back" %}
+                <label class="custom-file-label" for="customFile">CLick to select</label>
+            </div>
+        </div>
+
+        <button type="submit" class="mb-5">Send your MixTape <i class="fas fa-shipping-fast"></i></button>
+    </form>
+{% endblock %}
+
+{% block endbody %}
+    <script>
+        $(document).ready(function () {
+            $('#id_text').summernote({
+                fontNames: ['Cormorant Garamond', 'IM Fell English SC', 'Luckiest Guy', 'Major Mono Display', 'Marck Script', 'Pacifico' ]
+            });
+            $('.cover').change(function () {
+                var my_array = $(this).val().split("\\");
+                $(this).next('label').text("Cover:" + my_array[my_array.length - 1]);
+            })
+            $('.back').change(function () {
+                var my_array = $(this).val().split("\\");
+                $(this).next('label').text("Back:" + my_array[my_array.length - 1]);
+            })
+        });</script>
+{% endblock %}
