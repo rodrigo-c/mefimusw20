@@ -6,11 +6,11 @@
     <form method="post" novalidate>
         {% csrf_token %}
         <div class="form-group mb-3">
-            <label for="id_title">Your mix's title</label>
+            <label for="id_title">Your mix's awesome title</label>
             {% render_field form.title class+="form-control" %}
         </div>
         <div class="form-group mb-3">
-            <label for="id_text">Tracklist / Liner notes</label>
+            <label for="id_text">Tracklist / Liner notes <br><small>stretches down as long as you need</small></label>
             {% render_field form.text class+="form-control" %}
         </div>
         <div class="form-group mb-3">
@@ -29,7 +29,7 @@
         {##}
         {#        </div>#}
         <div class="form-group pb-3">
-                            <p class="mb-2">Cover image (optional)</p>
+            <p class="mb-2">Cover image (optional)</p>
 
             <div class="custom-file">
                 {% render_field form.cover_image class+="custom-file-input cover" %}
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="form-group pb-3">
-<p class="mb-2">Back image (optional)</p>
+            <p class="mb-2">Back image (optional)</p>
             <div class="custom-file">
                 {% render_field form.back_image class+="custom-file-input back" %}
                 <label class="custom-file-label" for="customFile">CLick to select</label>
@@ -52,15 +52,23 @@
     <script>
         $(document).ready(function () {
             $('#id_text').summernote({
-                fontNames: ['Cormorant Garamond', 'IM Fell English SC', 'Luckiest Guy', 'Major Mono Display', 'Marck Script', 'Pacifico' ]
+                fontNames: ['Cormorant Garamond', 'IM Fell English SC', 'Luckiest Guy', 'Major Mono Display', 'Marck Script', 'Pacifico'],
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ],
             });
             $('.cover').change(function () {
                 var my_array = $(this).val().split("\\");
-                $(this).next('label').text("Cover:" + my_array[my_array.length - 1]);
+                $(this).next('label').text(my_array[my_array.length - 1]);
             })
             $('.back').change(function () {
                 var my_array = $(this).val().split("\\");
-                $(this).next('label').text("Back:" + my_array[my_array.length - 1]);
+                $(this).next('label').text(my_array[my_array.length - 1]);
             })
         });</script>
 {% endblock %}

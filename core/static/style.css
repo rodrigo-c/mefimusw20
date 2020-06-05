@@ -38,3 +38,9 @@ input, textarea, .form-control, .custom-file-input, .custom-file-label, .note-ed
     background: rgba(154, 97, 20, .05);
 }
 
+
+a {
+    color: #996114;
+    font-weight: 900;
+    text-decoration: underline;
+}

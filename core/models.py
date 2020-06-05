@@ -15,6 +15,7 @@ class Submission(models.Model):
     link = models.URLField(blank=True)
     cover_image = models.ImageField(upload_to='covers', blank=True)
     back_image = models.ImageField(upload_to='covers', blank=True)
+    tags = models.CharField(max_length=1000)
 
 class Comment(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
