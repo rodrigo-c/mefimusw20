@@ -1,14 +1,16 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=IM+Fell+English+SC&family=Luckiest+Guy&family=Major+Mono+Display&family=Marck+Script&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Major+Mono+Display&display=swap');
 
 body {
-font-family: 'Major Mono Display', monospace;
+    font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    color: #996114;
-    background: rgb(255, 253, 248);
+    color: #006699;
+    background: rgba(136, 194, 216, 0.5);
     /*background: linear-gradient(176deg, rgba(255, 253, 248, 1) 0%, rgba(215, 210, 185, 1) 100%);*/
 }
-
+h1, h2, h3 {
+    font-familY: 'Major Mono Display', monospace;
+}
 h1 {
     font-size: 6vw;
     /*font-style: italic;*/
@@ -18,29 +20,81 @@ h1 {
 
 button {
     font-size: 24px;
-    background: #996114 ;
+    background: rgba(156, 199, 84, 1.000);
     color: #fff;
-     border: 4px dashed #996114;
+    border: 4px dashed #006699;
 
 }
 
 button:hover {
     background: #fff;
- color: #996114;
+    color: #006699;
 }
 
-input, textarea, .form-control, .custom-file-input, .custom-file-label, .note-editor.note-frame {
-    border-radius: 0;
-    border: 4px dashed #996114;
+input, textarea, select, .form-control, .custom-file-input, .custom-file-label, .note-editor.note-frame {
+    border-radius: 0 !important;
+    border: 4px dashed #006699 !important;
 }
 
-.note-toolbar, .note-statusbar, .note-resizebar, .note-btn-group    .note-btn {
+
+.note-toolbar, .note-statusbar, .note-resizebar, .note-btn-group .note-btn {
     background: rgba(154, 97, 20, .05);
 }
 
 
 a {
-    color: #996114;
+    color: #006699;
     font-weight: 900;
     text-decoration: underline;
+    /*text-decoration-style: wavy;*/
+}
+a:hover {
+        text-decoration-style: wavy;
+
+    /*text-transform: uppercase;*/
+}
+
+.green {
+    color: #9cc754;
+}
+
+.clock {
+    background: #006699;
+    color: #fff;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    border: 4px dashed #006699 !important;
+     outline: 0;
+    border-radius: 0 !important;
+
+
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    border: 4px dashed #006699 !important;
+     outline: 0;
+    border-radius: 0 !important;
+    background: #006699 !important;
+    color: #fff !important;
+}
+
+.tag {
+        background: #006699 !important;
+    color: #fff !important;
+    font-size: 85%;
+    display: inline-block;
+    float: left;
+    padding: 0.2em 0.4em;
+    margin: 0.2em 0.2em;
+}
+
+.tag:first-child {
+    margin-left: 16px;
+}
+
+ul.menu, ul.menu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

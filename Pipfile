@@ -14,6 +14,9 @@ django-bootstrap4 = "*"
 django-crispy-forms = "*"
 pillow = "*"
 django-widget-tweaks = "*"
+django-autocomplete-light = "*"
+django-autoslug = "*"
+sorl-thumbnail = "*"
 
 [requires]
 python_version = "3.7"

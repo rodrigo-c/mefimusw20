@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+    <div class="container-fluid category  mt-5 login-page">
+        <div class="container forms">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {% block title %}<h1>Ingresa a tu cuenta</h1>{% endblock %}
+
+                    {% if form.errors %}
+                        <p>Tu clave y usuario no calzan, por favor intenta nuevamente</p>
+                    {% endif %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                            <p>Por favor prueba con otra cuenta.</p>
+                        {% else %}Por favor logeate para ver esta página.</p>
+                        {% endif %}
+                    {% endif %}
+
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+
+                            <div  class="row mb-3">
+                                <div class="col-12 col-md-6">Email</div>
+                                <div class="col-12 col-md-6">{{ form.username }}</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12 col-md-6">{{ form.password.label_tag }}</div>
+                                <div class="col-12 col-md-6">{{ form.password }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6"> <input type="submit" value="login" class="loginbutton col-12 my-3 p-3 p-md-1"></div>
+                                <div class="col-12-col-md-6 my-3 my-md-0 pl-3"><a href="{% url 'password_reset' %}">¿Perdiste tu clave?</a></div>
+                            </div>
+
+                                <input type="hidden" name="next" value="{{ next }}">
+
+
+                            </tr>
+                        </table>
+                    </form>
+
+                    {# Assumes you setup the password_reset view in your URLconf #}
+
+                </div>
+                <div class="col-12 col-md-6">
+                    <h1>
+                        O <a href="{% url 'signup' %}">crea una cuenta nueva<br><br> <i class="fas fa-plus"></i></a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

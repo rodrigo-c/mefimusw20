@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+    <small>{{ object.user.mefi_handle }}'s Mix</small>
+    <h1>{{ object.title }}</h1>
+    {% if object.tags.all %}
+        <div class="row">
+            {% for tag in object.tags.all %}
+                <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+    <p><a href="{{ object.link }}">Listen or download here.</a></p>
+    {% if object.cover_image or object.back_image %}
+        <div class="row">
+            {% if object.cover_image %}
+                <div class="col-12 my-3">
+                    <img src="{% thumbnail object.cover_image '800x600' %}" class="img-fluid">
+                </div>
+            {% endif %}
+            {% if object.back_image %}
+                <div class="col-12 my-3">
+                    <img src="{% thumbnail object.back_image '800x600' %}" class="img-fluid">
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    <p>{{ object.text|safe }}</p>
+    <p></p>
+{% endblock %}
+
+{% block endbody %}
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block undertitle %}
+    {% if object.user == request.user %}
+        <li class="mt-2">
+            you can  <br><a href="{% url 'mixedit' pk=object.id %}" c>edit this <i
+                class="fa fa-pencil-alt"></i></a>!
+        </li>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+{% load widget_tweaks %}
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 pt-5"><h1>MeFi<br>Music<br>Swap<br>2020<br></h1>
+                <h1><i class="fas fa-compact-disc fa-spin"></i></h1>
+                <ul class="menu">
+                </ul>
+                {% block undertitle %}{% endblock %}
+            </div>
+            <div class="col pt-5">
+
+
+                <div class="row ">
+                    <div class="col-12 mb-5">
+                        <h2> Welcome!
+                        </h2>
+                        <p> This is the 2020 Metafilter Music Swap, it goes like this:</p>
+                        <ol type="i">
+
+                            <li>You sign up and upload your mix sometime before July 1, 2020. <i class="fa fa-arrow-up"></i></li>
+                            <li>We send you your swap group. <i class="fa fa-users"></i></li>
+                            <li>You enjoy your group's mixes <i class="fa fa-headphones"></i>, maybe comment on them. </i></li>
+                            <li>You can browse and comment on all the other groups' mixes or tags, too. <i class="fa fa-smile-beam"></i></li>
+                        </ol>
+
+                    </div>
+                    <div class="col border-right border-info pr-5">
+<h3>                        Sign up <i class="fa fa-arrow-up"></i></h3>
+                            <form method="post" action="." class="  ">
+                            {% csrf_token %}
+
+                            <div class="row my-2">
+                                <div class='col-12 col-lg-12'>Email</div>
+                                <div class='col-12 col-lg-12'>{{ regform.username|attr:"required"|add_class:"col-12" }} {{ regform.username.errors }}</div>
+                            </div>
+                            <div class="row my-2">
+                                <div class='col-12 col-lg-12'>Password<small>(min 6 chars.)</small></div>
+                                <div class='col-12 col-lg-12'>{{ regform.password1|attr:"required"|add_class:"col-12" }} {{ regform.password1.errors }}</div>
+                            </div>
+                            <div class="row my-2">
+                                <div class='col-12 col-lg-12'>Platform</div>
+                                <div class='col-12 col-lg-12'>{{ regform.platform|attr:"required"|add_class:"   col-12 py-2" }} {{ regform.platform.errors }}</div>
+                            </div>
+
+                            <div class="row my-2">
+                                <div class='col-12 col-lg-12'>MeFi username</div>
+                                <div class='col-12 col-lg-12'>{{ regform.mefi_handle|attr:"required"|add_class:"col-12" }} {{ regform.mefi_handle.errors }}</div>
+                            </div>
+                              <div class="row my-2">
+                                <div class="col-12"><input type="submit" value="Sign Up"
+                                                                    class="loginbutton col-12 my-3 p-3 p-md-1"></div>
+                              </div>
+
+
+                </form>
+                    </div>
+                    <div class="col pl-5">
+                        <h3> Sign in <i class="fa fa-arrow-right"></i>
+                        </h3>                        {% if form.errors %}
+                            <p>Ooops, please check your email and password</p>
+                        {% endif %}
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+
+                            <div class="row mb-3">
+                                <div class="col-12">Email</div>
+                                <div class="col-12">{{ signinform.email }}</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">Password</div>
+                                <div class="col-12">{{ signinform.password }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 "><input type="submit" value="login"
+                                                                    class="loginbutton col-12 my-3 p-3 p-md-1"></div>
+                                <div class="col-12 my-3 my-md-0 pl-3"><a href="{% url 'password_reset' %}">Password,
+                                    what password?</a></div>
+                            </div>
+
+
+
+                            </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

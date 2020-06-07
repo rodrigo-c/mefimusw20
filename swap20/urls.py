@@ -15,13 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
-from core.views import SubmissionCreateView
+from django.conf import settings
+from django.conf.urls.static import static
+from core.views import GroupView, MixCreateView, MixView, MixEditView, TagAutocomplete, TagView, home
 
 urlpatterns = [
-    path('submit/', SubmissionCreateView.as_view(), name='submission_view'),
+    path('', home, name='home'),
+    path('mix/create', MixCreateView.as_view(), name='mixcreate'),
+    path('mix/edit/<int:pk>/', MixEditView.as_view(), name='mixedit'),
+    path('group/<int:pk>/', GroupView.as_view(), name='group'),
+    path('tag/<slug:slug>/', TagView.as_view(), name='tag'),
+    path('mix/<int:pk>/', MixView.as_view(), name='mix'),
+    path('tag-autocomplete/', TagAutocomplete.as_view(create_field='title'), name='tag-autocomplete'),
     path('admin/', admin.site.urls),
-    path('cuenta/', include('django.contrib.auth.urls')),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
