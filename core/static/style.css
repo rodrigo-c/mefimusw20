@@ -5,8 +5,8 @@
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    color: #006699;
-    background: rgba(136, 194, 216, 0.5);
+    color: #000;
+    background: rgba(156, 199, 84, 1.000);
     /*background: linear-gradient(176deg, rgba(255, 253, 248, 1) 0%, rgba(215, 210, 185, 1) 100%);*/
 }
 
@@ -25,35 +25,35 @@ button {
     font-size: 24px;
     background: rgba(156, 199, 84, 1.000);
     color: #fff;
-    border: 4px dashed #006699;
+    border: 4px dashed #000;
 
 }
 
 button:hover {
     background: #fff;
-    color: #006699;
+    color: #000;
 }
 
 input, textarea {
     border-radius: 0 !important;
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
 }
 
 
 .home select {
     border-radius: 0 !important;
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
 }
 
 .form-control {
     border-radius: 0 !important;
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
 }
 
 
 .custom-file-input, .custom-file-label, .note-editor.note-frame {
     border-radius: 0 !important;
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
 }
 
 
@@ -63,7 +63,7 @@ input, textarea {
 
 
 a {
-    color: #006699;
+    color: #000;
     font-weight: 900;
     text-decoration: underline;
     /*text-decoration-style: wavy;*/
@@ -71,7 +71,7 @@ a {
 
 a:hover {
     text-decoration-style: wavy;
-
+    color: #fff;
     /*text-transform: uppercase;*/
 }
 
@@ -80,12 +80,12 @@ a:hover {
 }
 
 .clock {
-    background: #006699;
+    background: #000;
     color: #fff;
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
     outline: 0;
     border-radius: 0 !important;
 
@@ -93,15 +93,15 @@ a:hover {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    border: 4px dashed #006699 !important;
+    border: 4px dashed #000 !important;
     outline: 0;
     border-radius: 0 !important;
-    background: #006699 !important;
+    background: #000 !important;
     color: #fff !important;
 }
 
 .tag {
-    background: #006699 !important;
+    background: #000 !important;
     color: #fff !important;
     font-size: 85%;
     display: inline-block;
