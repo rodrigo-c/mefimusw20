@@ -7,7 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from core.forms import MixForm, MyUserCreationForm, SigninForm, CommentForm
 from core.models import Mix, Group, Tag, MyUser, Event, Platform, Comment
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.models import Group as AdminGroup
 
 class MixCreateView(LoginRequiredMixin, CreateView):
     model = Mix
@@ -83,7 +83,9 @@ def home(request):
                     platform=data['platform'],
                 )
                 user.set_password(data['password1'])
-                user.user_permissions.add('core.add_tag')
+                user.save()
+                group, created = AdminGroup.objects.get_or_create(title='participants')
+                user.groups.add(group)
                 user.save()
                 login(request, user)
                 return redirect('mixcreate')
