@@ -26,7 +26,7 @@ class MyUserCreationForm(UserCreationForm):
 
 
 class SigninForm(forms.Form):
-    email = forms.EmailField()
+    username = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
 
 
