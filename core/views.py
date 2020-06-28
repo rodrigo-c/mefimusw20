@@ -92,6 +92,8 @@ def home(request):
 
 def wall(request):
     user = request.user
+    if not hasattr(request.user, 'mix'):
+        return redirect('mixcreate')
     # groups = Group.objects.all()
     # events = Event.objects.all()[:20]
 
