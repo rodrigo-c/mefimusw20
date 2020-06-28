@@ -51,7 +51,10 @@ class MyUser(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.mefi_handle
+        try:
+            return self.mefi_handle
+        except:
+            return self.username
 
     @classmethod
     def get_email_field_name(cls):
