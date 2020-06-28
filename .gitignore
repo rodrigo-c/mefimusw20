@@ -1,2 +1,3 @@
 *.pyc
 /.idea/
+/swap20/locals.py
