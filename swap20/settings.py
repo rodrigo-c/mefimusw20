@@ -133,4 +133,4 @@ AUTH_USER_MODEL = 'core.MyUser'
 THUMBNAIL_DEBUG = True
 
 
-from locals import *
+from .locals import *
