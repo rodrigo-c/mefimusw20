@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+    {% block title %}{% endblock %}
+    <div class="row">
+        {% for mix in object.mix_set.all %}
+            <a class="mix col-12 border-bottom" href="{{ mix.get_absolute_url }}">
+                <div class="row">
+                    <div class="col-2">
+                        {% if mix.cover_image %}
+                            <img src="{% thumbnail mix.cover_image '800x600' %}" class="img-fluid">
+                        {% endif %}
+                    </div>
+                    <div class="col-10">
+                        <small>{{ mix.user.mefi_handle }}</small><br>
+                        <strong class="mb-5 mt-2">{{ mix.title }}</strong>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,133 +1,133 @@
-{% extends 'core/base.html' %}
-{% load widget_tweaks %}
-{% load static %}
+    {% extends 'core/base.html' %}
+    {% load widget_tweaks %}
+    {% load static %}
 
-{% block content %}
-    <h2>{{ request.user.mefi_handle }}'s Mix</h2>
-    <p>Platform: {{ request.user.platform }}</p>
-    <form method="post" novalidate enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group mb-3">
-            <label for="id_title">Title</label>
-            {% render_field form.title class+="form-control" %}
-        </div>
+    {% block content %}
+        <h2>Upload {{ request.user.mefi_handle }}'s Mix</h2>
+        <p>Platform: {{ request.user.platform }}</p>
+        <form method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="id_title">Title</label>
+                {% render_field form.title class+="form-control" %}
+            </div>
+            <div class="form-group mb-3">
+                <label for="id_text">Main link to your mix. Could be a download link, a Spotify or Apple Music playlist,
+                    etc.
+                    You can use the anchor link icon to add links in the text or the code icon (&lt;/&gt;) to paste
+                    in a playlist's embed
+                    code. You could also inlcude a list of links, a tracklist or liner notes.</label>
+                {% render_field form.text class+="form-control" rows='10' %}
+                <small>Go nuts, it's as long as you need.</small>
+            </div>
 
-        <div class="form-group mb-3">
-            <label for="id_text">Tracklist / liner notes / whatever</label>
-            {% render_field form.text class+="form-control" %}
-            <small>go wild, it stretches as long as you want</small>
-        </div>
-        <div class="form-group mb-3">
-            <label for="id_link">Link where we can listen <i class="fas fa-headphones-alt"></i> or download <i
-                    class="fas fa-arrow-circle-down"></i></label>
-            {% render_field form.link class+="form-control" %}
-        </div>
 
-        <div class="form-group mb-5">
-            <label for="id_title">Some tags <i class="fa fa-tags"> </i> would be nice <small>(optional)</small></label>
-            {% render_field form.tags class+="form-control" %}
-        </div>
+            <div class="form-group mb-5">
+                <label for="id_title">Some tags <i class="fa fa-tags"> </i> would be nice <small>(optional) Search the list
+                    by typing
+                    or write in your own.</small></label>
+                {% render_field form.tags class+="form-control" %}
+            </div>
 
-        <div class="form-group pb-3">
-            <p class="mb-2">Cover image <small>(optional)</small></p>
+            <div class="form-group pb-3">
+                <p class="mb-2">Cover image <small>(optional)</small></p>
 
-            {% render_field form.cover_image class+="form-control-file cover" %}
-            <label class="" for="customFile">click to select</label>
-        </div>
-        <div class="form-group pb-3">
-            <p class="mb-2">Back image <small>(optional)</small></p>
-            {% render_field form.back_image class+="form-control-file back" %}
-            <label class="" for="customFile">click to select</label>
-        </div>
+                {% render_field form.cover_image class+="form-control-file cover" %}
+                <label class="" for="customFile">click to select</label>
+            </div>
+            <div class="form-group pb-3">
+                <p class="mb-2">Back image <small>(optional)</small></p>
+                {% render_field form.back_image class+="form-control-file back" %}
+                <label class="" for="customFile">click to select</label>
+            </div>
 
-        <button type="submit" class="mb-5 col-12 py-2"><i class="fas fa-save"></i> save & <i class="fas fa-eye"></i>
-            preview your righteous Mix
-        </button>
-    </form>
-{% endblock %}
+            <button type="submit" class="mb-5 col-12 py-2"><i class="fas fa-save"></i> Save &
+                Preview <i class="fas fa-eye"></i> your Mix
+            </button>
+        </form>
+    {% endblock %}
 
-{% block endbody %}
-    <script>
-        $(document).ready(function () {
-            $('#id_text').summernote({
-                fontNames: ['Cormorant Garamond', 'IM Fell English SC', 'Luckiest Guy', 'Major Mono Display', 'Marck Script', 'Pacifico'],
-                toolbar: [
-                    ['style', ['style']],
-                    {#['font', ['bold', 'underline', 'clear']],#}
-                    ['fontname', ['fontname']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'help']],
-                ],
+    {% block endbody %}
+        <script>
+            $(document).ready(function () {
+                $('#id_text').summernote({
+                    height: 300,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['view', ['fullscreen', 'help']],
+                                            ['insert', [ 'picture', 'video', 'link', 'codeview']],
+                    ],
+                });
+                $('.cover').change(function () {
+                    var my_array = $(this).val().split("\\");
+                    $(this).next('label').text(my_array[my_array.length - 1]);
+                })
+                $('.back').change(function () {
+                    var my_array = $(this).val().split("\\");
+                    $(this).next('label').text(my_array[my_array.length - 1]);
+                })
             });
-            $('.cover').change(function () {
-                var my_array = $(this).val().split("\\");
-                $(this).next('label').text(my_array[my_array.length - 1]);
-            })
-            $('.back').change(function () {
-                var my_array = $(this).val().split("\\");
-                $(this).next('label').text(my_array[my_array.length - 1]);
-            })
-        });
 
-        function getTimeRemaining(endtime) {
-            const total = Date.parse(endtime) - Date.parse(new Date());
-            const seconds = Math.floor((total / 1000) % 60);
-            const minutes = Math.floor((total / 1000 / 60) % 60);
-            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+            function getTimeRemaining(endtime) {
+                const total = Date.parse(endtime) - Date.parse(new Date());
+                const seconds = Math.floor((total / 1000) % 60);
+                const minutes = Math.floor((total / 1000 / 60) % 60);
+                const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+                const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
-            return {
-                total,
-                days,
-                hours,
-                minutes,
-                seconds
-            };
-        }
-
-        function initializeClock(id, endtime) {
-            const clock = document.getElementById(id);
-            const daysSpan = clock.querySelector('.days');
-            const hoursSpan = clock.querySelector('.hours');
-            const minutesSpan = clock.querySelector('.minutes');
-            const secondsSpan = clock.querySelector('.seconds');
-
-            function updateClock() {
-                const t = getTimeRemaining(endtime);
-
-                daysSpan.innerHTML = t.days;
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                if (t.total <= 0) {
-                    clearInterval(timeinterval);
-                }
+                return {
+                    total,
+                    days,
+                    hours,
+                    minutes,
+                    seconds
+                };
             }
 
-            updateClock();
-            const timeinterval = setInterval(updateClock, 1000);
-        }
+            function initializeClock(id, endtime) {
+                const clock = document.getElementById(id);
+                const daysSpan = clock.querySelector('.days');
+                const hoursSpan = clock.querySelector('.hours');
+                const minutesSpan = clock.querySelector('.minutes');
+                const secondsSpan = clock.querySelector('.seconds');
 
-        const deadline = new Date(2020, 6, 1);
-        initializeClock('clockdiv', deadline);
+                function updateClock() {
+                    const t = getTimeRemaining(endtime);
+
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+
+                updateClock();
+                const timeinterval = setInterval(updateClock, 1000);
+            }
+
+            const deadline = new Date(2020, 7, 1);
+            initializeClock('clockdiv', deadline);
 
 
-    </script>
+        </script>
 
-    {{ form.media }}
+        {{ form.media }}
 
-{% endblock %}
+    {% endblock %}
 
-{% block undertitle %}
-    <li class="mt-2"><small>better get on it!</small><br>
-        <div class="clock px-3 py-1" id="clockdiv">
-            <span class="days "></span>d
-            <span class="hours "></span>h
-            <span class="minutes ">  </span>m
-            <span class="seconds ">  </span>s
-        </div>
-    <small>You can save and keep editing your mix until then.</small>
-    </li>
-{% endblock %}
+    {% block undertitle %}
+        <li class="mt-2"><small>Better get on it!</small><br>
+            <div class="clock px-3 py-1" id="clockdiv">
+                <span class="days "></span><strong>D</strong>
+                <span class="hours "></span><strong>H</strong>
+                <span class="minutes ">  </span><strong>M</strong>
+                <span class="seconds ">  </span><strong> S</strong>
+            </div>
+            <small>You can save and keep editing your mix until then.</small>
+        </li>
+    {% endblock %}

@@ -56,8 +56,9 @@
         <div class="col-12 col-md-3 pt-5"><h2>MeFi<br>Music<br>Swap<br>2020<br></h2>
             <h2><i class="fas fa-compact-disc fa-spin"></i></h2>
             <ul class="menu">
-                <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Go home</a></li>
+                <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Go home</a></li>
                 {% if request.user.get_absolute_url %}<li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl"></i> Your mix</a></li>{% endif %}
+                {% if request.user.is_authenticated %} <i class="fa fa-times-circle"></i> <a href="{% url 'logout' %}">Log out</a>{% endif %}
                 {% block undertitle %}{% endblock %}
             </ul>
 

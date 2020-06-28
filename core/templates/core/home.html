@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load widget_tweaks %}
 {% block container %}
-    <div class="container">
+    <div class="container home">
         <div class="row">
             <div class="col-12 col-md-4 pt-5"><h1>MeFi<br>Music<br>Swap<br>2020<br></h1>
                 <h1><i class="fas fa-compact-disc fa-spin"></i></h1>
@@ -16,17 +16,17 @@
                     <div class="col-12 mb-5">
                         <h2> Welcome!
                         </h2>
-                        <p> This is the 2020 Metafilter Music Swap, it goes like this:</p>
+                        <p><strong> This is the 2020 Metafilter Music Swap, it goes like this:</strong></p>
                         <ol type="i">
 
-                            <li>You sign up and upload your mix sometime before July 1, 2020. <i class="fa fa-arrow-up"></i></li>
+                            <li>You sign up and upload your mix sometime before August 1, 2020. <i class="fa fa-arrow-up"></i></li>
                             <li>We send you your swap group. <i class="fa fa-users"></i></li>
                             <li>You enjoy your group's mixes <i class="fa fa-headphones"></i>, maybe comment on them. </i></li>
                             <li>You can browse and comment on all the other groups' mixes or tags, too. <i class="fa fa-smile-beam"></i></li>
                         </ol>
 
                     </div>
-                    <div class="col border-right border-info pr-5">
+                    <div class="col-md col-12 border-right border-info pr-md-5">
 <h3>                        Sign up <i class="fa fa-arrow-up"></i></h3>
                             <form method="post" action="." class="  ">
                             {% csrf_token %}
@@ -56,8 +56,9 @@
 
                 </form>
                     </div>
-                    <div class="col pl-5">
-                        <h3> Sign in <i class="fa fa-arrow-right"></i>
+                <div class="d-md-none text-center mt-5 col-12"><h3 class="">--or--</h3> </div>
+                    <div class="col-md col-12 pl-md-5 mt-5 mt-md-0">
+                        <h3> Log in <i class="fa fa-arrow-right"></i>
                         </h3>                        {% if form.errors %}
                             <p>Ooops, please check your email and password</p>
                         {% endif %}
@@ -66,17 +67,17 @@
 
                             <div class="row mb-3">
                                 <div class="col-12">Email</div>
-                                <div class="col-12">{{ signinform.email }}</div>
+                                <div class="col-12">{{ signinform.email|attr:"required"|add_class:"col-12" }}</div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-12">Password</div>
-                                <div class="col-12">{{ signinform.password }}</div>
+                                <div class="col-12">{{ signinform.password|attr:"required"|add_class:"col-12" }}</div>
                             </div>
                             <div class="row">
-                                <div class="col-12 "><input type="submit" value="login"
+                                <div class="col-12 "><input type="submit" value="Log in"
                                                                     class="loginbutton col-12 my-3 p-3 p-md-1"></div>
-                                <div class="col-12 my-3 my-md-0 pl-3"><a href="{% url 'password_reset' %}">Password,
-                                    what password?</a></div>
+                                <div class="col-12 my-3 my-md-0 pl-3"><a href="{% url 'password_reset' %}">What's
+                                    my password?</a></div>
                             </div>
 
 

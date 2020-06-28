@@ -17,6 +17,9 @@ class Group(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('group', args=[str(self.id)])
+
 
 class CustomUserManager(UserManager):
     def get_by_natural_key(self, username):
@@ -26,7 +29,7 @@ class CustomUserManager(UserManager):
 
 class MyUser(AbstractUser):
     mefi_handle = models.CharField(max_length=200, null=True)
-    group = models.ForeignKey(Group, on_delete=models.DO_NOTHING, blank=True, null=True)
+    the_group = models.ForeignKey(Group, on_delete=models.DO_NOTHING, blank=True, null=True)
     platform = models.ForeignKey(Platform, on_delete=models.DO_NOTHING, blank=True, null=True)
 
     objects = CustomUserManager()
@@ -46,7 +49,7 @@ class Mix(models.Model):
     user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=1000)
     text = models.TextField(blank=True)
-    link = models.URLField(blank=True)
+    # link = models.TextField()
     cover_image = models.ImageField(upload_to='covers', blank=True)
     back_image = models.ImageField(upload_to='covers', blank=True)
     tags = models.ManyToManyField('Tag', blank=True)

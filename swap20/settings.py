@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
+
     'dal',
     'dal_select2',
     'django.contrib.admin',
@@ -37,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
 
     # 'crispy_forms',
     'widget_tweaks',

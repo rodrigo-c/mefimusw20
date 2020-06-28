@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 class MixForm(forms.ModelForm):
     class Meta:
         model = Mix
-        fields = ('title', 'text', 'link', 'cover_image', 'back_image', 'tags')
+        fields = ('title', 'text', 'cover_image', 'back_image', 'tags')
         widgets = {
             'tags': autocomplete.ModelSelect2Multiple(url='tag-autocomplete')
         }
@@ -19,12 +19,10 @@ class MyUserCreationForm(UserCreationForm):
         fields = ("username", 'platform', 'mefi_handle')
         field_classes = {'username': UsernameField}
 
-    birthdate = forms.DateField(
-        widget=forms.DateInput(format='%d-%m-%Y'),
-        input_formats=('%d-%m-%Y',)
-
-    )
-    policies = forms.BooleanField(widget=forms.CheckboxInput, initial=False, required=True)
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields.pop('password2')
+    password2 = None
 
 class SigninForm(forms.Form):
     email = forms.EmailField()
