@@ -133,4 +133,12 @@ AUTH_USER_MODEL = 'core.MyUser'
 THUMBNAIL_DEBUG = True
 LOGIN_REDIRECT_URL = 'wall'
 
+
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'swap20'
+EMAIL_HOST_PASSWORD = 'protract-snide-eldest-hunk'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'contacto@mmswap.net'
+
 from .locals import *
