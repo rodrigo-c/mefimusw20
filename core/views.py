@@ -85,7 +85,7 @@ def home(request):
                 user.set_password(data['password1'])
                 group, created = Group.objects.get_or_create(title='participants')
                 user.groups.add(group)
-
+                user.save()
                 login(request, user)
                 return redirect('mixcreate')
 
