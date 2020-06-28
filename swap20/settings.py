@@ -131,3 +131,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTH_USER_MODEL = 'core.MyUser'
 
 THUMBNAIL_DEBUG = True
+
+
+try:
+    from locals import *
+except:
+    pass

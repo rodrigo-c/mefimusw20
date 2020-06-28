@@ -17,7 +17,7 @@
         </div>
     {% endif %}
     {% if object.tags.all %}
-        <div class="col-12 mt-2 text-right">
+        <div class="col-12 mt-2 ">
             {% for tag in object.tags.all %}
                 <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
             {% endfor %}
