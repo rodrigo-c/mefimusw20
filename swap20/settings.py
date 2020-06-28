@@ -139,6 +139,6 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'swap20'
 EMAIL_HOST_PASSWORD = 'protract-snide-eldest-hunk'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'contacto@mmswap.net'
+DEFAULT_FROM_EMAIL = 'contact@mmswap.net'
 
 from .locals import *
