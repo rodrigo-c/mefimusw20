@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from core.views import GroupView, MixCreateView, MixView, MixEditView, TagAutocomplete, TagView, home
+from core.views import GroupView, MixCreateView, MixView, MixEditView, TagAutocomplete, TagView, home, wall, sendcomment
 
 urlpatterns = [
     path('', home, name='home'),
+    path('wall', wall, name='wall'),
+    path('sendcomment', sendcomment, name='sendcomment'),
     path('mix/create', MixCreateView.as_view(), name='mixcreate'),
     path('mix/edit/<int:pk>/', MixEditView.as_view(), name='mixedit'),
     path('group/<int:pk>/', GroupView.as_view(), name='group'),

@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load widget_tweaks %}
+{% block container %}
+    <div class="container home">
+        <div class="row">
+            <div class="col-12 col-md-4 pt-5"><h1>MeFi<br>Music<br>Swap<br>2020<br></h1>
+                <h1><i class="fas fa-compact-disc fa-spin"></i></h1>
+                <ul class="menu">
+                </ul>
+                {% block undertitle %}{% endblock %}
+            </div>
+            <div class="col pt-5">
+
+
+                <div class="row ">
+                    <div class="col-12 mb-5">
+                        <h2> Welcome {{ user }}!
+                        </h2>
+                        {% if request.user.get_absolute_url %}
+                            <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl"></i> Your
+                                mix</a></li>{% endif %}
+                        {% if request.user.the_group %}
+                            <li><a href="{{ request.user.the_group.get_absolute_url }}"><i
+                                    class="fa fa-people-carry"></i>
+                                Your group</a></li>{% endif %}
+                        {% if request.user.is_authenticated %}
+                            <li><i class="fa fa-times-circle"></i> <a href="{% url 'logout' %}"> Log out</a>
+                            </li>{% endif %}
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

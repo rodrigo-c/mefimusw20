@@ -24,6 +24,13 @@ class MyUserCreationForm(UserCreationForm):
     #     self.fields.pop('password2')
     password2 = None
 
+
 class SigninForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
+
+
+class CommentForm(forms.Form):
+    text = forms.CharField()
+    objectid = forms.CharField()
+    objectclass = forms.CharField()

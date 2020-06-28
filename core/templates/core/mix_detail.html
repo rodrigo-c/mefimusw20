@@ -41,6 +41,8 @@
     {% endif %}
     <p>{{ object.text|safe }}</p>
     <p></p>
+
+    {% include 'comments.html' %}
 {% endblock %}
 
 {% block endbody %}

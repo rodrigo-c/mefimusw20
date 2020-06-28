@@ -4,8 +4,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView
-from core.forms import MixForm, MyUserCreationForm, SigninForm
-from core.models import Mix, Group, Tag, MyUser
+from core.forms import MixForm, MyUserCreationForm, SigninForm, CommentForm
+from core.models import Mix, Group, Tag, MyUser, Event, Platform, Comment
+from django.http import HttpResponseRedirect
 
 
 class MixCreateView(LoginRequiredMixin, CreateView):
@@ -62,12 +63,7 @@ def home(request):
     regform = MyUserCreationForm()
     signinform = SigninForm()
     if request.user.is_authenticated:
-        if request.user.the_group:
-            return redirect(request.user.the_group.get_absolute_url())
-        elif hasattr(request.user, 'mix'):
-            return redirect(request.user.mix.get_absolute_url())
-        else:
-            return redirect('mixcreate')
+        return redirect('wall')
 
     if request.method == 'POST':
         regform = MyUserCreationForm(request.POST)
@@ -92,3 +88,37 @@ def home(request):
                 return redirect('mixcreate')
 
     return render(request, 'core/home.html', locals())
+
+
+def wall(request):
+    user = request.user
+    groups = Group.objects.all()
+    events = Event.objects.all()[:20]
+
+    return render(request, 'core/wall.html', locals())
+
+
+
+def sendcomment(request):
+    user = request.user
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        data = form.cleaned_data
+        classname = data['objectclass']
+        objclass = {
+            'Mix': Mix,
+            'Group': Group,
+            'Tag': Tag,
+            'Platform': Platform
+        }[classname]
+        obj = objclass.objects.get(id=data['objectid'])
+        comment = Comment(
+            content_object=obj,
+            text=data['text'],
+            user=user
+        )
+        comment.save()
+        return HttpResponseRedirect(comment.get_absolute_url())
+    else:
+        #2do error message
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

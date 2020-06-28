@@ -1,0 +1,26 @@
+{% load swaptags %}
+<div class="pt-5">
+    <h2>Comments <i class="fas fa-comment"></i></h2>
+    {% for comment in object.comments.all %}
+        <div class="row border-bottom border-white  pt-2 pb-3" id="comment-{{ comment.id }}">
+            <div class="col-3" style="line-height: 1em">
+                <small>{{ comment.datetime|date:'F j, Y g:i A' }}<br>
+                <strong>{{ comment.user.mefi_handle }}</strong></small>
+            </div>
+            <div class="col-9 ">
+                {{ comment.text }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <form class="comment-form mt-5" action="{% url 'sendcomment' %}" method="post">
+        Everybody needs a hug
+        {% csrf_token %}
+        <input type="hidden" value="{{ object|class_name }}" name="objectclass">
+        <input type="hidden" value="{{ object.id }}" name="objectid">
+
+        <textarea name="text" class="form-control" rows="5" id="id_text"></textarea>
+        <button type="submit" class="mb-5 col-12 py-2"><i class="fas fa-arrow-circle-right"></i> Send your comment!
+        </button>
+    </form>
+</div>
