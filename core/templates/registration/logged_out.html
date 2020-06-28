@@ -5,10 +5,9 @@
 
 {% block content %}
 <div class="container-fluid category text-center mt-5 loggedout col-md-6 col-12 offset-md-3 p-5 my-5">
-        {% block title %}<h1>You have logged out</h1>{% endblock %}
+        {% block title %}<h2>You have logged out</h2>{% endblock %}
 
             <div class="container-fluid p-0 mt-5 mb-5">
-<p class="my-5"><a href="{% url 'login' %}">{% trans 'Log in again' %}</a></p>
 <p class="my-5 "><a href="{% url 'home' %}">Go back home</a></p>
   </div>
 </div>
