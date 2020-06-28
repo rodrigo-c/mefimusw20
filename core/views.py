@@ -92,8 +92,8 @@ def home(request):
 
 def wall(request):
     user = request.user
-    groups = Group.objects.all()
-    events = Event.objects.all()[:20]
+    # groups = Group.objects.all()
+    # events = Event.objects.all()[:20]
 
     return render(request, 'core/wall.html', locals())
 
