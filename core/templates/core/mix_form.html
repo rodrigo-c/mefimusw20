@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-    <h2>upload {{ request.user.mefi_handle }}'s Mix</h2>
+    <h2>upload your mix</h2>
+    <h3>{{ request.user.mefi_handle }}'s</h3>
     <p>Platform: {{ request.user.platform }}</p>
     <form method="post" novalidate enctype="multipart/form-data">
         {% csrf_token %}
