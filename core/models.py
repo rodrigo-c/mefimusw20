@@ -88,7 +88,6 @@ class Mix(models.Model):
 
 class Tag(models.Model):
     title = models.CharField(max_length=1000)
-    slug = AutoSlugField(populate_from='title')
 
     comments = GenericRelation('Comment')
 
@@ -103,7 +102,7 @@ class Tag(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tag', args=[str(self.slug)])
+        return reverse('tag', args=[self.id])
 
 
 class Event(models.Model):

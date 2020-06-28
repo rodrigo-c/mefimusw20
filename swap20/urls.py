@@ -26,7 +26,7 @@ urlpatterns = [
     path('mix/create', MixCreateView.as_view(), name='mixcreate'),
     path('mix/edit/<int:pk>/', MixEditView.as_view(), name='mixedit'),
     path('group/<int:pk>/', GroupView.as_view(), name='group'),
-    path('tag/<slug:slug>/', TagView.as_view(), name='tag'),
+    path('tag/<int:pk>/', TagView.as_view(), name='tag'),
     path('mix/<int:pk>/', MixView.as_view(), name='mix'),
     path('tag-autocomplete/', TagAutocomplete.as_view(create_field='title'), name='tag-autocomplete'),
     path('admin/', admin.site.urls),
