@@ -28,20 +28,20 @@
 
 
         <div class="form-group mb-5 mt-5">
-            <label for="id_title">Some tags <i class="fa fa-tags"> </i> would be nice <small>(optional) Search the list
+            <label for="id_title"><strong>Some tags</strong> <i class="fa fa-tags"> </i> would be nice <small>(optional) Search the list
                 by typing
                 or write in your own.</small></label>
             {% render_field form.tags class+="form-control" %}
         </div>
 
         <div class="form-group pb-3 mt-5">
-            <p class="mb-2">Cover image <small>(optional)</small></p>
+            <p class="mb-2"><strong>Cover image </strong><small>(optional)</small></p>
 
             {% render_field form.cover_image class+="form-control-file cover" %}
             <label class="" for="customFile">click to select</label>
         </div>
         <div class="form-group pb-3 mt-5">
-            <p class="mb-2">Back image <small>(optional)</small></p>
+            <p class="mb-2"><strong>Back image</strong> <small>(optional)</small></p>
             {% render_field form.back_image class+="form-control-file back" %}
             <label class="" for="customFile">click to select</label>
         </div>
