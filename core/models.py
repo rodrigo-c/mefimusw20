@@ -15,6 +15,9 @@ class Platform(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['title']
+
 
 class Group(models.Model):
     title = models.CharField(max_length=200)
@@ -31,6 +34,8 @@ class Group(models.Model):
     def mix_set(self):
         return {'all': [i.mix for i in self.myuser_set.all()]}
 
+    class Meta:
+        ordering = ['title']
 
 class CustomUserManager(UserManager):
     def get_by_natural_key(self, username):
