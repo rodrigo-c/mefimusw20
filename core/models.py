@@ -19,7 +19,7 @@ class Platform(models.Model):
         ordering = ['title']
 
 
-class TheGroup(models.Model):
+class Group(models.Model):
     title = models.CharField(max_length=200)
     comments = GenericRelation('Comment')
     platform = models.ForeignKey(Platform, on_delete=models.DO_NOTHING, blank=True, null=True)
@@ -45,7 +45,7 @@ class CustomUserManager(UserManager):
 
 class MyUser(AbstractUser):
     mefi_handle = models.CharField(max_length=200, null=True)
-    the_group = models.ForeignKey(TheGroup, on_delete=models.DO_NOTHING, blank=True, null=True)
+    the_group = models.ForeignKey(Group, on_delete=models.DO_NOTHING, blank=True, null=True)
     platform = models.ForeignKey(Platform, on_delete=models.DO_NOTHING, blank=True, null=True)
 
     objects = CustomUserManager()
