@@ -84,7 +84,7 @@ def home(request):
                 )
                 user.set_password(data['password1'])
                 user.save()
-                group, created = AdminGroup.objects.get_or_create(title='participants')
+                group, created = AdminGroup.objects.get_or_create(name='participants')
                 user.groups.add(group)
                 user.save()
                 login(request, user)
