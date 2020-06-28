@@ -20,6 +20,8 @@ class Group(models.Model):
     def get_absolute_url(self):
         return reverse('group', args=[str(self.id)])
 
+    def mix_set(self):
+        return {'all': [i.mix for i in self.myuser_set.all()]}
 
 class CustomUserManager(UserManager):
     def get_by_natural_key(self, username):

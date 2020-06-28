@@ -27,4 +27,9 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
-    pass
+    fieldsets = (
+        (None, {'fields': ('email', 'password', 'groups', )}),
+        ('Swap', {'fields': ('mefi_handle', 'the_group', 'platform', )}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+

@@ -3,7 +3,7 @@
     {% load static %}
 
     {% block content %}
-        <h2>Upload {{ request.user.mefi_handle }}'s Mix</h2>
+        <h2>upload {{ request.user.mefi_handle }}'s Mix</h2>
         <p>Platform: {{ request.user.platform }}</p>
         <form method="post" novalidate enctype="multipart/form-data">
             {% csrf_token %}
@@ -11,31 +11,33 @@
                 <label for="id_title">Title</label>
                 {% render_field form.title class+="form-control" %}
             </div>
-            <div class="form-group mb-3">
-                <label for="id_text">Main link to your mix. Could be a download link, a Spotify or Apple Music playlist,
+            <div class="form-group mb-3 mt-5">
+                <p for="id_text"><p>How to listen to your mix. Could be a download link, a Spotify or Apple Music playlist,
                     etc.
                     You can use the anchor link icon to add links in the text or the code icon (&lt;/&gt;) to paste
                     in a playlist's embed
-                    code. You could also inlcude a list of links, a tracklist or liner notes.</label>
+                    code. You could also inlcude a list of links, a tracklist or liner notes.
+                </p>
+                </label>
                 {% render_field form.text class+="form-control" rows='10' %}
                 <small>Go nuts, it's as long as you need.</small>
             </div>
 
 
-            <div class="form-group mb-5">
+            <div class="form-group mb-5 mt-5">
                 <label for="id_title">Some tags <i class="fa fa-tags"> </i> would be nice <small>(optional) Search the list
                     by typing
                     or write in your own.</small></label>
                 {% render_field form.tags class+="form-control" %}
             </div>
 
-            <div class="form-group pb-3">
+            <div class="form-group pb-3 mt-5">
                 <p class="mb-2">Cover image <small>(optional)</small></p>
 
                 {% render_field form.cover_image class+="form-control-file cover" %}
                 <label class="" for="customFile">click to select</label>
             </div>
-            <div class="form-group pb-3">
+            <div class="form-group pb-3 mt-5">
                 <p class="mb-2">Back image <small>(optional)</small></p>
                 {% render_field form.back_image class+="form-control-file back" %}
                 <label class="" for="customFile">click to select</label>
