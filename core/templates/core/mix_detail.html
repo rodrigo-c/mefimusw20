@@ -9,7 +9,7 @@
      {% if object.user == request.user %}
         <li class="mt-2">
             <i
-                class="fa fa-pencil-alt"></i>You can <br><a href="{% url 'mixedit' pk=object.id %}">edit this </a>!
+                class="fa fa-pencil-alt"></i>You can <a href="{% url 'mixedit' pk=object.id %}">edit this </a>!
         </li>
     {% endif %}
     {% if object.user.the_group %}
