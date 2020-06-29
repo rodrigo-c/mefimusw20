@@ -52,8 +52,6 @@ quotes = '''
 “I love the way music inside a car makes you feel invisible; if you play the stereo at max volume, it’s almost like the other people can’t see into your vehicle. It tints your windows, somehow.” ― Chuck Klosterman
 “Film as dream, film as music. No art passes our conscience in the way film does, and goes directly to our feelings, deep down into the dark rooms of our souls.” ― Ingmar Bergman
 “Music brings a warm glow to my vision, thawing mind and muscle from their endless wintering.” ― Haruki Murakami
-“Softly, deftly, music shall caress you. Hear it, feel it, Secretly possess you.” ― Charles Hart
-“Most people die with their music still locked up inside them.” ― Benjamin Disraeli
 “Music is the moonlight in the gloomy night of life.” ― Jean Paul Friedrich Richter
 “It’s like if the music is loud enough I won’t be able to listen to my own thoughts. ” ― Nic Sheff
 “There is nothing more to be said or to be done tonight, so hand me over my violin and let us try to forget for half an hour the miserable weather and the still more miserable ways of our fellowmen.” ― Arthur Conan Doyle
@@ -65,7 +63,6 @@ quotes = '''
 “When you play, never mind who listens to you.” ― Robert Schumann
 “Music, my rampart and my only one.” ― Edna St. Vincent Millay
 “This will be our reply to violence: to make music more intensely, more beautifully, more devotedly than ever before.” ― Leonard Bernstein
-“Music is what tell us that the human race is greater than we realize.” ― Napoléon Bonaparte
 “If you were music, I would listen to you ceaselessly, and my low spirits would brighten up.” ― Anna Akhmatova
 "Looking back on the production of 'Nevermind,' I'm embarrassed by it now. It's closer to a Motley Crue record than it is a punk rock record." - Kurt Cobain
 “I would rather write 10,000 notes than a single letter of the alphabet.” ― Ludwig van Beethoven
@@ -103,7 +100,6 @@ quotes = '''
 “To send light into the darkness of men’s hearts – such is the duty of the artist.” – Robert Schumann
 “A creative artist works on his next composition because he was not satisfied with his previous one.” – Dmitri Shostakovich
 “I can’t understand why people are frightened of new ideas. I’m frightened of the old ones.” – John Cage
-“As long as we live, there is never enough singing.” – Martin Luther
 “Music comes to me more readily than words.” – Ludwig Van Beethoven
 “The only love affair I have ever had was with music.” – Maurice Ravel
 “Music brings a warm glow to my vision, thawing mind and muscle from their endless wintering.” – Haruki Murakami
