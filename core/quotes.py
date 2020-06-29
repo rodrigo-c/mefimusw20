@@ -31,7 +31,6 @@ quotes = '''
 “For the first time, he heard something that he knew to be music. He heard people singing. Behind him, across vast distances of space and time, from the place he had left, he thought he heard music too. But perhaps, it was only an echo.” ― Lois Lowry
 “It is always fatal to have music or poetry interrupted.” ― George Eliot
 “Tell me what you listen to, and I’ll tell you who you are.” ― Tiffanie DeBartolo
-“My heart, which is so full to overflowing, has often been solaced and refreshed by music when sick and weary.” ― Martin Luther
 “No matter how corrupt, greedy, and heartless our government, our corporations, our media, and our religious & charitable institutions may become, the music will still be wonderful.” ― Kurt Vonnegut
 “Life seems to go on without effort when I am filled with music.” ― George Eliot
 “Music is everybody’s business. It’s only the publishers who think people own it” ― John Lennon
