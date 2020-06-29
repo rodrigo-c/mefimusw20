@@ -1,5 +1,6 @@
 {% extends 'core/base.html' %}
 {% load widget_tweaks %}
+{% load swaptags %}
 {% block container %}
     <div class="container home">
         <div class="row">
@@ -8,6 +9,11 @@
                 <ul class="menu">
                 </ul>
                 {% block undertitle %}{% endblock %}
+            <div class="quote my-5">
+                        <em>
+                            <small> {% random_quote %}</small>
+                        </em>
+                    </div>
             </div>
             <div class="col pt-5">
 

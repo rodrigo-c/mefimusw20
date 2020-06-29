@@ -67,11 +67,7 @@
                     {% if request.user.is_authenticated %}
                         <li><i class="fa fa-times-circle"></i> <a href="{% url 'logout' %}"> Log out</a></li>{% endif %}
                     {% block undertitle %}{% endblock %}
-                    <div class="quote my-5">
-                        <em>
-                            <small> {% random_quote %}</small>
-                        </em>
-                    </div>
+
                 </ul>
 
             </div>
