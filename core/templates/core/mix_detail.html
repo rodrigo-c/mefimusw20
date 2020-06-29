@@ -6,6 +6,12 @@
 {% block content %}
     <small>{{ object.user.mefi_handle }}'s Mix</small>
     <h1 class="mb-5 mt-2">{{ object.title }}</h1>
+     {% if object.user == request.user %}
+        <li class="mt-2">
+            <i
+                class="fa fa-pencil-alt"></i>You can <br><a href="{% url 'mixedit' pk=object.id %}">edit this </a>!
+        </li>
+    {% endif %}
     {% if object.user.the_group %}
         <div class="col-12 mt-2">
             Group: <a href="{{ object.user.the_group.get_absolute_url }}">{{ object.user.the_group }}</a>
@@ -56,11 +62,6 @@
 
 
 {% block undertitle %}
-    {% if object.user == request.user %}
-        <li class="mt-2">
-            <i
-                class="fa fa-pencil-alt"></i>You can <br><a href="{% url 'mixedit' pk=object.id %}">edit this </a>!
-        </li>
-    {% endif %}
+
 
 {% endblock %}
