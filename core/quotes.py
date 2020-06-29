@@ -39,7 +39,6 @@ quotes = '''
 “You have to, take a deep breath. and allow the music to flow through you. Revel in it, allow yourself to awe. When you play allow the music to break your heart with its beauty.” ― Kelly White
 “Music is an agreeable harmony for the honor of God and the permissible delights of the soul.” ― Johann Sebastian Bach
 “Music is a proud, temperamental mistress. Give her the time and attention she deserves, and she is yours. Slight her and there will come a day when you call and she will not answer. So I began sleeping less to give her the time she needed.” ― Patrick Rothfuss
-“People ask me how I make music. I tell them I just step into it. It’s like stepping into a river and joining the flow. Every moment in the river has its song.” ― Michael Jackson
 “The more you love,the more love you have to give.It’s the only feeling we have which is infinite…” ― Christina Westover
 “To me, the greatest pleasure of writing is not what it’s about, but the music the words make.” ― Truman Capote
 “Musical innovation is full of danger to the State, for when modes of music change, the fundamental laws of the State always change with them.” ― Plato
@@ -60,7 +59,6 @@ quotes = '''
 “It’s like if the music is loud enough I won’t be able to listen to my own thoughts. ” ― Nic Sheff
 “There is nothing more to be said or to be done tonight, so hand me over my violin and let us try to forget for half an hour the miserable weather and the still more miserable ways of our fellowmen.” ― Arthur Conan Doyle
 “The man that hath no music in himself, Nor is not moved with concord of sweet sounds, Is fit for treasons, stratagems, and spoils; The motions of his spirit are dull as night, And his affections dark as Erebus. Let no such man be trusted. Mark the music.” ― William Shakespeare
-“To live is to be musical, starting with the blood dancing in your veins. Everything living has a rhythm. Do you feel your music?” ― Michael Jackson
 “Love is friendship set to music.” ― Jackson Pollock
 “Music, when soft voices die, vibrates in the memory.” ― Percy Bysshe Shelley
 “A great song should lift your heart, warm the soul and make you feel good.” ― Colbie Caillat
