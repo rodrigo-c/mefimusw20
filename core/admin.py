@@ -14,7 +14,7 @@ class PlatformAdmin(admin.ModelAdmin):
 @admin.register(Mix)
 class SubmissionAdmin(admin.ModelAdmin):
     pass
-    list_display = ['user', ]
+    # list_display = ['user', 'user__mefi_handle']
     list_filter = ['user__the_group']
 
 
