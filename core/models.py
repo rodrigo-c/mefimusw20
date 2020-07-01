@@ -50,11 +50,11 @@ class MyUser(AbstractUser):
 
     objects = CustomUserManager()
 
-    def __str__(self):
-        try:
-            return self.mefi_handle
-        except:
-            return self.username
+    # def __str__(self):
+    #     try:
+    #         return self.mefi_handle
+    #     except:
+    #         return self.username
 
     @classmethod
     def get_email_field_name(cls):
@@ -99,7 +99,10 @@ class Tag(models.Model):
         ordering = ['title']
 
     def __str__(self):
-        return self.title
+        try:
+            return self.title
+        except:
+            return 'tag'
 
     def get_absolute_url(self):
         return reverse('tag', args=[self.id])
