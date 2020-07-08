@@ -4,7 +4,7 @@
 {% load thumbnail %}
 
 {% block content %}
-    <small>{{ object.user.mefi_handle }}'s Mix</small>
+    <small>{{ object.user.mefi_handle }}'s mix</small>
     <h1 class="mb-5 mt-2">{{ object.title }}</h1>
      {% if object.user == request.user %}
 
@@ -35,12 +35,12 @@
         <div class="row">
             {% if object.cover_image %}
                 <div class="col-12 my-3">
-                    <img src="{% thumbnail object.cover_image '800x600' %}" class="img-fluid">
+                    <img src="{% thumbnail object.cover_image '900x900' %}" class="img-fluid">
                 </div>
             {% endif %}
             {% if object.back_image %}
                 <div class="col-12 my-3">
-                    <img src="{% thumbnail object.back_image '800x600' %}" class="img-fluid">
+                    <img src="{% thumbnail object.back_image '900x900' %}" class="img-fluid">
                 </div>
             {% endif %}
         </div>
