@@ -56,23 +56,23 @@
             {% render_field form.tags class+="form-control" %}
         </div>
 
-{#        <div class="form-group pb-3 mt-5">#}
-{#            <label class="" for="bg_color">#}
-{#                <strong>Background Color </strong><small>(optional)</small>#}
-{#            </label>#}
-{#            {% render_field form.bg_color class+="form-control" %}#}
-{#            <small>Click the field to open a color selector or write/paste a hex value. Default green is#}
-{#                #9cc75c </small>#}
-{#        </div>#}
-{#        <div class="form-group pb-3 mt-5">#}
-{#            <label class="" for="tx_color">#}
-{#                <strong>Text Color </strong><small>(optional)</small>#}
-{#            </label>#}
-{#            {% render_field form.tx_color class+="form-control" %}#}
-{#            <small>Click the field to open a color selector or write/paste a hex value. Default black is#}
-{#                #000000 </small>#}
-{##}
-{#        </div>#}
+        <div class="form-group pb-3 mt-5">
+            <label class="" for="bg_color">
+                <strong>Background Color </strong><small>(optional)</small>
+            </label>
+            {% render_field form.bg_color class+="form-control" %}
+            <small>Click the field to open a color selector or write/paste a hex value. Default green is
+                #9cc75c </small>
+        </div>
+        <div class="form-group pb-3 mt-5">
+            <label class="" for="tx_color">
+                <strong>Text Color </strong><small>(optional)</small>
+            </label>
+            {% render_field form.tx_color class+="form-control" %}
+            <small>Click the field to open a color selector or write/paste a hex value. Default black is
+                #000000 </small>
+
+        </div>
         <div class="form-group pb-3 mt-5">
             <p class="mb-2"><strong>Cover image </strong><small>(optional)</small></p>
 
@@ -98,16 +98,15 @@
             // Basic instantiation:
             $('#id_bg_color').colorpicker();
             $('#id_bg_color').on('colorpickerChange', function (event) {
-                $('body').css('background-color', event.color.toString()).css('');
-                $('button').css('background-color', event.color.toString()).css('');
-                $('input').css('background-color', event.color.toString()).css('');
-                $('textarea').css('background-color', event.color.toString()).css('');
-                {#$('body').css('background-color', event.color.toString()).css('');#}
-            });
+                $('body').css('background-color', event.color.toString());
+                $('button').css('background-color', event.color.toString());
+                $('input').css('background-color', event.color.toString());
+                $('textarea').css('background-color', event.color.toString());
+             });
             $('#id_tx_color').colorpicker();
             $('#id_tx_color').on('colorpickerChange', function (event) {
                 $('body').css('color', event.color.toString());
-            });
+             });
         });
     </script>
     <script>

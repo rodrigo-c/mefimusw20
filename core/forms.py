@@ -7,8 +7,8 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 class MixForm(forms.ModelForm):
     class Meta:
         model = Mix
-        # fields = ('title', 'text', 'cover_image', 'back_image', 'tags', 'bg_color', 'tx_color')
-        fields = ('title', 'text', 'cover_image', 'back_image', 'tags')
+        fields = ('title', 'text', 'cover_image', 'back_image', 'tags', 'bg_color', 'tx_color')
+        # fields = ('title', 'text', 'cover_image', 'back_image', 'tags')
         widgets = {
             'tags': autocomplete.ModelSelect2Multiple(url='tag-autocomplete')
         }
