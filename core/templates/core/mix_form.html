@@ -1,9 +1,30 @@
 {% extends 'core/base.html' %}
 {% load widget_tweaks %}
 {% load static %}
+{% block endhead %}
+    <link href="{% static 'bootstrap-colorpicker/css/bootstrap-colorpicker.css' %}" rel="stylesheet">
+    <style>
+        body {
+            color: {{ mix.tx_color }};
+            background-color: {{ mix.bg_color }};
+        }
 
+        a {
+            color: {{ mix.tx_color }};
+
+        }
+
+        button, input, textarea, .form-control {
+            background-color: {{ mix.bg_color }};
+            border-color: {{ mix.tx_color }} !important;
+            color: {{ mix.tx_color }};
+
+        }
+
+    </style>
+{% endblock %}
 {% block content %}
-        <h3>{{ request.user.mefi_handle }}</h3>
+    <h3>{{ request.user.mefi_handle }}</h3>
     <h2>Upload your mix</h2>
     <p>Platform: {{ request.user.platform }}</p>
     <form method="post" novalidate enctype="multipart/form-data">
@@ -14,7 +35,8 @@
         </div>
         <div class="form-group mb-3 mt-5">
             <label for="id_text">
-                <p><strong>How to listen to your mix.</strong> Could be a download link, a Spotify or Apple Music playlist,
+                <p><strong>How to listen to your mix.</strong> Could be a download link, a Spotify or Apple Music
+                    playlist,
                     etc.
                     You can use the anchor link icon to add links in the text or the code icon (&lt;/&gt;) to paste
                     in a playlist's embed
@@ -27,12 +49,28 @@
 
 
         <div class="form-group mb-5 mt-5">
-            <label for="id_title"><strong>Some tags</strong> <i class="fa fa-tags"> </i> would be nice <small>(optional) Search the list
+            <label for="id_title"><strong>Some tags</strong> <i class="fa fa-tags"> </i> would be nice <small>(optional)
+                Search the list
                 by typing
                 or write in your own.</small></label>
             {% render_field form.tags class+="form-control" %}
         </div>
 
+        <div class="form-group pb-3 mt-5">
+            <label class="" for="bg_color">
+                <strong>Background Color </strong><small>(optional)</small>
+            </label>
+            {% render_field form.bg_color class+="form-control" %}
+            <small>Click the field to open a color selector or write/paste a hex value. Default green is #9cc75c </small>
+        </div>
+        <div class="form-group pb-3 mt-5">
+            <label class="" for="tx_color">
+                <strong>Text Color </strong><small>(optional)</small>
+            </label>
+            {% render_field form.tx_color class+="form-control" %}
+                        <small>Click the field to open a color selector or write/paste a hex value. Default black is #000000 </small>
+
+        </div>
         <div class="form-group pb-3 mt-5">
             <p class="mb-2"><strong>Cover image </strong><small>(optional)</small></p>
 
@@ -52,6 +90,24 @@
 {% endblock %}
 
 {% block endbody %}
+    <script src="{% static 'bootstrap-colorpicker/js/bootstrap-colorpicker.js' %}"></script>
+    <script>
+        $(function () {
+            // Basic instantiation:
+            $('#id_bg_color').colorpicker();
+            $('#id_bg_color').on('colorpickerChange', function (event) {
+                $('body').css('background-color', event.color.toString()).css('');
+                $('button').css('background-color', event.color.toString()).css('');
+                $('input').css('background-color', event.color.toString()).css('');
+                $('textarea').css('background-color', event.color.toString()).css('');
+                {#$('body').css('background-color', event.color.toString()).css('');#}
+            });
+            $('#id_tx_color').colorpicker();
+            $('#id_tx_color').on('colorpickerChange', function (event) {
+                $('body').css('color', event.color.toString());
+            });
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('#id_text').summernote({

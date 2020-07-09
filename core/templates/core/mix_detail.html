@@ -2,7 +2,25 @@
 {% load widget_tweaks %}
 {% load static %}
 {% load thumbnail %}
+{% block endhead %}
+<style>
+body {
+     color: {{ mix.tx_color }};
+    background-color: {{ mix.bg_color }};
+}
 
+a {
+         color: {{ mix.tx_color }};
+
+}
+button, input, textarea, .form-control {
+        background-color: {{ mix.bg_color }};
+    border-color: {{ mix.tx_color }} !important;
+
+}
+
+</style>
+{% endblock %}
 {% block content %}
     <small>{{ object.user.mefi_handle }}'s mix</small>
     <h1 class="mb-5 mt-2">{{ object.title }}</h1>

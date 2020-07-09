@@ -75,7 +75,8 @@ class Mix(models.Model):
     cover_image = models.ImageField(upload_to='covers', blank=True)
     back_image = models.ImageField(upload_to='covers', blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
-
+    bg_color = models.CharField(max_length=200, default='#9cc754')
+    tx_color = models.CharField(max_length=200, default='#000000')
     comments = GenericRelation('Comment')
 
 
