@@ -29,7 +29,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
     list_display = ['mefi_handle', 'the_group', 'platform']
-    list_filter = ['the_group']
+    list_filter = ['the_group', 'platform']
     fieldsets = (
         (None, {'fields': ('email', 'password', 'groups',)}),
         ('Swap', {'fields': ('mefi_handle', 'the_group', 'platform',)}),
