@@ -4,8 +4,6 @@ from django.contrib.auth.admin import UserAdmin
 from .models import *
 
 
-
-
 @admin.register(Platform)
 class PlatformAdmin(admin.ModelAdmin):
     pass
@@ -22,15 +20,18 @@ class SubmissionAdmin(admin.ModelAdmin):
 class GroupAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
+    list_display = ['mefi_handle', 'the_group', 'platform']
+    list_filter = ['the_group']
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'groups', )}),
-        ('Swap', {'fields': ('mefi_handle', 'the_group', 'platform', )}),
+        (None, {'fields': ('email', 'password', 'groups',)}),
+        ('Swap', {'fields': ('mefi_handle', 'the_group', 'platform',)}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
-
