@@ -97,7 +97,8 @@ def wall(request):
     user = request.user
     if not hasattr(request.user, 'mix'):
         return redirect('mixcreate')
-    # groups = Group.objects.all()
+    if request.user.the_group:
+        othergroups = Group.objects.exclude(id=request.user.the_group.id)
     # events = Event.objects.all()[:20]
 
     return render(request, 'core/wall.html', locals())

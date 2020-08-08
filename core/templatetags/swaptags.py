@@ -1,5 +1,6 @@
 from django import template
 from random import choice
+import random
 
 from core.quotes import quotes
 
@@ -15,3 +16,9 @@ def class_name(value):
 def random_quote():
     return choice(quotes)
 
+
+@register.filter
+def shuffle(arg):
+    aux = list(arg)[:]
+    random.shuffle(aux)
+    return aux

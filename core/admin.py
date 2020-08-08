@@ -35,3 +35,4 @@ class MyUserAdmin(UserAdmin):
         ('Swap', {'fields': ('mefi_handle', 'the_group', 'platform',)}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
+    list_editable = ['the_group']

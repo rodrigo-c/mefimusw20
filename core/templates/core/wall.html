@@ -9,37 +9,51 @@
                 <ul class="menu">
                 </ul>
                 {% block undertitle %}{% endblock %}
-            <div class="quote my-5">
-                        <em>
-                            <small> {% random_quote %}</small>
-                        </em>
-                    </div>
+                <div class="quote my-5">
+                    <em>
+                        <small> {% random_quote %}</small>
+                    </em>
+                </div>
             </div>
             <div class="col pt-5">
 
 
                 <div class="row ">
                     <div class="col-12 mb-5">
-                        <h2> Welcome {{ user }}!
+                        <h2> Welcome {{ user.mefi_handle }}!
                         </h2>
+                     {% if request.user.the_group %}
+                            <li><a href="{{ request.user.the_group.get_absolute_url }}"><i class="fas fa-users fa-fw"></i>
+                                Your group: {{ request.user.the_group }}</a></li>{% endif %}
                         {% if request.user.get_absolute_url %}
-                            <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl"></i> Your
+                            <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl fa-fw"></i> Your
                                 mix</a></li>{% endif %}
-                        {% if request.user.the_group %}
-                            <li><a href="{{ request.user.the_group.get_absolute_url }}"><i
-                                    class="fa fa-people-carry"></i>
-                                Your group</a></li>{% endif %}
-                        {% if request.user.is_authenticated %}
-                            <li><i class="fa fa-times-circle"></i> <a href="{% url 'logout' %}"> Log out</a>
-                            </li>{% endif %}
+
+
 
 
                     </div>
+                    <div class="col-12 my-5">
+                        Other groups:
+                        <ul>
+                            {% for group in othergroups %}
+                                {% if group.mix_set.all %}
+                                    <li><a href="{{ group.get_absolute_url }}"><i class="fas fa-users"></i>
+                                        {{ group.title }}</a></li>
+                                {% endif %}
+                            {% endfor %}
 
+                        </ul>
+                    </div>
+                <div class="col-12 my-5">
+                      {% if request.user.is_authenticated %}
+                            <li><i class="fa fa-times-circle fa-fw"></i> <a href="{% url 'logout' %}"> Log out</a>
+                            </li>{% endif %}
                 </div>
-{#            <div class="row">#}
-{#                Groups:#}
-{#            </div>#}
+                </div>
+                {#            <div class="row">#}
+                {#                Groups:#}
+                {#            </div>#}
             </div>
         </div>
     </div>

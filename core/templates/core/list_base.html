@@ -1,12 +1,13 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% load thumbnail %}
+{% load swaptags %}
 
 {% block content %}
     {% block title %}{% endblock %}
     <div class="row">
-        {% for mix in object.mix_set.all %}
-            <a class="mix col-12 border-bottom" href="{{ mix.get_absolute_url }}">
+        {% for mix in object.mix_set.all|shuffle %}
+            <a class="mix col-6 p-5" href="{{ mix.get_absolute_url }}">
                 <div class="row">
                     <div class="col-2">
                         {% if mix.cover_image %}
@@ -21,6 +22,7 @@
             </a>
         {% endfor %}
     </div>
-
-    {% include 'comments.html' %}
+{#{% block comments %}#}
+{#    {% include 'comments.html' %}#}
+{#{% endblock %}#}
 {% endblock %}

@@ -32,7 +32,7 @@ class Group(models.Model):
         return reverse('group', args=[str(self.id)])
 
     def mix_set(self):
-        return {'all': [i.mix for i in self.myuser_set.all()]}
+        return {'all': [i.mix for i in self.myuser_set.all() if hasattr(i, 'mix')] }
 
     class Meta:
         ordering = ['title']
@@ -78,6 +78,7 @@ class Mix(models.Model):
     bg_color = models.CharField(max_length=200, default='#9cc754')
     tx_color = models.CharField(max_length=200, default='#000000')
     comments = GenericRelation('Comment')
+    editable = models.BooleanField(default=True)
 
 
     def __str__(self):

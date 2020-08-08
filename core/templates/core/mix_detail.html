@@ -24,7 +24,7 @@ button, input, textarea, .form-control {
 {% block content %}
     <small>{{ object.user.mefi_handle }}'s mix</small>
     <h1 class="mb-5 mt-2">{{ object.title }}</h1>
-     {% if object.user == request.user %}
+     {% if object.user == request.user and object.editable %}
 
             <i
                 class="fa fa-pencil-alt"></i>You can <a href="{% url 'mixedit' pk=object.id %}">edit this </a>!

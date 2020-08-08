@@ -17,8 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-
-    <script src="https://kit.fontawesome.com/cfc05cfdcc.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a02f9ed480.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>MMSwap20 | {{ object }}</title>
     {#    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"#}
@@ -59,15 +58,15 @@
             <div class="col-12 col-md-3 pt-5"><h2>MeFi<br>Music<br>Swap<br>2020<br></h2>
                 <h2><i class="fas fa-compact-disc fa-spin"></i></h2>
                 <ul class="menu">
-                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Go home</a></li>
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home fa-fw"></i> Go home</a></li>
                     {% if request.user.get_absolute_url %}
-                        <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl"></i> Your
+                        <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl fa-fw"></i> Your
                             mix</a></li>{% endif %}
                     {% if request.user.the_group %}
-                        <li><a href="{{ request.user.the_group.get_absolute_url }}"><i class="fa fa-people-carry"></i>
+                        <li><a href="{{ request.user.the_group.get_absolute_url }}"><i class="fas fa-users fa-fw"></i>
                             Your group</a></li>{% endif %}
                     {% if request.user.is_authenticated %}
-                        <li><i class="fa fa-times-circle"></i> <a href="{% url 'logout' %}"> Log out</a></li>{% endif %}
+                        <li><i class="fa fa-times-circle fa-fw"></i> <a href="{% url 'logout' %}"> Log out</a></li>{% endif %}
                     {% block undertitle %}{% endblock %}
 
                 </ul>
