@@ -53,14 +53,14 @@
                         Latest comments:
                         {% for comment in comments %}
                             <div class="row border-bottom border-white  pt-2 pb-3" id="comment-{{ comment.id }}">
-                                <div class="col-4" style="line-height: 1em">  <small>
+                                <div class="col-6" style="line-height: 1em">  <small>
                                         <strong>{{ comment.user.mefi_handle }}</strong> on <strong> <a href="{{ comment.content_object.get_absolute_url }}">
                                             {{ comment.content_object }}
                                         </a></strong></small><br>
                                   {{ comment.datetime|date:'F j, Y g:i A' }}</small>
 
                                 </div>
-                                <div class="col-8 ">
+                                <div class="col-6 ">
                                     {{ comment.text }}
                                 </div>
                             </div>
