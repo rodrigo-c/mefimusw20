@@ -61,7 +61,9 @@
 
                                 </div>
                                 <div class="col-6 ">
-                                    {{ comment.text }}
+                                    <small>
+                                    {{ comment.text|slice:':200' }}
+                                        </small>
                                 </div>
                             </div>
                         {% endfor %}
