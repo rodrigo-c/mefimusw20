@@ -22,40 +22,57 @@
                     <div class="col-12 mb-5">
                         <h2> Welcome {{ user.mefi_handle }}!
                         </h2>
-                     {% if request.user.the_group %}
-                            <li><a href="{{ request.user.the_group.get_absolute_url }}"><i class="fas fa-users fa-fw"></i>
+                        {% if request.user.the_group %}
+                            <li><a href="{{ request.user.the_group.get_absolute_url }}"><i
+                                    class="fas fa-users fa-fw"></i>
                                 Your group: {{ request.user.the_group }}</a></li>{% endif %}
                         {% if request.user.get_absolute_url %}
-                            <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl fa-fw"></i> Your
+                            <li><a href="{{ request.user.get_absolute_url }}"><i class="fa fa-record-vinyl fa-fw"></i>
+                                Your
                                 mix</a></li>{% endif %}
 
 
-
-
                     </div>
-                {% if othergroups %}
+                    {% if othergroups %}
+                        <div class="col-12 my-5">
+                            Other groups:
+                            <ul>
+                                {% for group in othergroups %}
+                                    {% if group.mix_set.all %}
+                                        <li><a href="{{ group.get_absolute_url }}"><i class="fas fa-users"></i>
+                                            {{ group.title }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    {% endif %}
+
+
                     <div class="col-12 my-5">
-                        Other groups:
-                        <ul>
-                            {% for group in othergroups %}
-                                {% if group.mix_set.all %}
-                                    <li><a href="{{ group.get_absolute_url }}"><i class="fas fa-users"></i>
-                                        {{ group.title }}</a></li>
-                                {% endif %}
-                            {% endfor %}
+                        Latest comments:
+                        {% for comment in comments %}
+                            <div class="row border-bottom border-white  pt-2 pb-3" id="comment-{{ comment.id }}">
+                                <div class="col-4" style="line-height: 1em">  <small>
+                                        <strong>{{ comment.user.mefi_handle }}</strong> on <strong> <a href="{{ comment.content_object.get_absolute_url }}">
+                                            {{ comment.content_object }}
+                                        </a></strong></small><br>
+                                  {{ comment.datetime|date:'F j, Y g:i A' }}</small>
 
-                        </ul>
+                                </div>
+                                <div class="col-8 ">
+                                    {{ comment.text }}
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endif %}
-                <div class="col-12 my-5">
-                      {% if request.user.is_authenticated %}
+                      <div class="col-12 my-5">
+                        {% if request.user.is_authenticated %}
                             <li><i class="fa fa-times-circle fa-fw"></i> <a href="{% url 'logout' %}"> Log out</a>
                             </li>{% endif %}
+                    </div>
                 </div>
-                </div>
-                {#            <div class="row">#}
-                {#                Groups:#}
-                {#            </div>#}
+
             </div>
         </div>
     </div>

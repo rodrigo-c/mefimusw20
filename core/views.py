@@ -100,7 +100,7 @@ def wall(request):
     if request.user.the_group:
         othergroups = Group.objects.exclude(id=request.user.the_group.id)
     # events = Event.objects.all()[:20]
-
+    comments = Comment.objects.order_by('-datetime')[:12]
     return render(request, 'core/wall.html', locals())
 
 
