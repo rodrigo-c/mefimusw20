@@ -33,6 +33,7 @@
 
 
                     </div>
+                {% if othergroups %}
                     <div class="col-12 my-5">
                         Other groups:
                         <ul>
@@ -45,6 +46,7 @@
 
                         </ul>
                     </div>
+                {% endif %}
                 <div class="col-12 my-5">
                       {% if request.user.is_authenticated %}
                             <li><i class="fa fa-times-circle fa-fw"></i> <a href="{% url 'logout' %}"> Log out</a>
