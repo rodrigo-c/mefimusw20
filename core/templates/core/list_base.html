@@ -9,12 +9,12 @@
         {% for mix in object.mix_set.all|shuffle %}
             <a class="mix col-6 p-5" href="{{ mix.get_absolute_url }}">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5">
                         {% if mix.cover_image %}
                             <img src="{% thumbnail mix.cover_image '800x600' %}" class="img-fluid">
                         {% endif %}
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <small>{{ mix.user.mefi_handle }}</small><br>
                         <strong class="mb-5 mt-2">{{ mix.title }}</strong>
                     </div>
