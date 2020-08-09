@@ -36,3 +36,9 @@ class MyUserAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     list_editable = ['the_group']
+
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'content_object', 'short' ]

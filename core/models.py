@@ -132,3 +132,6 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return self.content_object.get_absolute_url() + f"#comment-{self.id}"
+
+    def short(self):
+        return self.text[:100]
