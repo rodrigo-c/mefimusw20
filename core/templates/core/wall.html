@@ -54,7 +54,7 @@
                         {% for comment in comments %}
                             <div class="row border-bottom border-white  pt-2 pb-3" id="comment-{{ comment.id }}">
                                 <div class="col-6" style="line-height: 1em">  <small>
-                                        <strong>{{ comment.user.mefi_handle }}</strong> on <strong> <a href="{{ comment.content_object.get_absolute_url }}">
+                                        <em>{{ comment.user.mefi_handle }}</em> on <strong> <a href="{{ comment.content_object.get_absolute_url }}">
                                             {{ comment.content_object }}
                                         </a></strong></small><br>
                                   {{ comment.datetime|date:'F j, Y g:i A' }}</small>
